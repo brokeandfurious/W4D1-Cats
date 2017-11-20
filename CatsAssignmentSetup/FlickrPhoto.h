@@ -10,12 +10,10 @@
 
 @interface FlickrPhoto : NSObject
 
-@property (nonatomic,strong) NSString *flickrId;
-@property (nonatomic,strong) NSString *owner;
+@property (nonatomic,strong) NSString *server;
+@property (nonatomic,strong) NSString *farm;
+@property (nonatomic,strong) NSString *ownerId;
 @property (nonatomic,strong) NSString *secret;
-// etc
-
-@property (nonatomic,strong) UIImage *image;
 
 - (instancetype)initWithInfo:(NSDictionary*)info;
 

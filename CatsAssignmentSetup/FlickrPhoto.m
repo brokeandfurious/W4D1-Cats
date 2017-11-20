@@ -10,4 +10,20 @@
 
 @implementation FlickrPhoto
 
+- (instancetype)initWithInfo:(NSDictionary *)info
+{
+    self = [super init];
+    if (self) {
+        _server = info[@"server"];
+        _farm = info[@"farm"];
+        _ownerId = info[@"id"];
+        _secret = info[@"secret"];
+    }
+    return self;
+}
+
+-(NSURL *)imageURL {
+    return [NSURL URLWithString: [NSString stringWithFormat: @"https://farm%@.staticflickr.com/%@/%@_%@.jpg", self.farm, self.server, self.ownerId, self.secret]];
+}
+
 @end
