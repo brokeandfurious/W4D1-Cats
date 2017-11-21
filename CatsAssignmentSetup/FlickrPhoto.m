@@ -14,17 +14,20 @@
 {
     self = [super init];
     if (self) {
-        _server = info[@"server"];
-        _farm = info[@"farm"];
-        _ownerId = info[@"id"];
-        _secret = info[@"secret"];
+        _flickrID = info[@"id"];
+        _serverID = info[@"server"];
+        _farmID = info[@"farm"];
+        _secretID = info[@"secret"];
         _title = info[@"title"];
     }
     return self;
 }
 
+
 -(NSURL *)imageURL {
-    return [NSURL URLWithString: [NSString stringWithFormat: @"https://farm%@.staticflickr.com/%@/%@_%@.jpg", self.farm, self.server, self.ownerId, self.secret]];
+    // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@.jpg", self.farmID, self.serverID, self.flickrID, self.secretID]];
+    return url;
 }
 
 @end

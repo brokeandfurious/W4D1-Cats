@@ -12,8 +12,7 @@
 
 + (void)searchFor:(NSString *)tag complete:(void (^)(NSArray *))done
 {
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=4a5123bfc72e8fac6a046b7b173a4e5c&tags=cat"]];
-    
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=4a5123bfc72e8fac6a046b7b173a4e5c&tags=%@", tag]];
     NSURLSessionTask *task =
     [[NSURLSession sharedSession]
      dataTaskWithURL:url
@@ -32,17 +31,20 @@
 
          // parse response
          NSError *err = nil;
-         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+         NSDictionary *result = [NSJSONSerialization
+                                 JSONObjectWithData:data
+                                 options:0
+                                 error:&err];
          if (err != nil) {
              NSLog(@"Something has gone wrong parsing JSON: %@", err.localizedDescription);
              abort();
          }
 
-         NSMutableArray <FlickrPhoto*> *photos = [@[]mutableCopy];
+         NSMutableArray *photos = [[NSMutableArray alloc] init];
          for (NSDictionary *photoInfo in result[@"photos"][@"photo"]) {
              [photos addObject:[[FlickrPhoto alloc] initWithInfo:photoInfo]];
          }
- 
+
          done([NSArray arrayWithArray:photos]);
      }];
 
@@ -51,18 +53,18 @@
 
 + (void)loadImage:(FlickrPhoto*)photo completionHandler:(void (^)(UIImage *))finishedCallback
 {
-//    // checking if we've already downloaded the photo so we don't waste time doing it again
-//    if (photo.image != nil) {
-//        // if we already have it, immediately invoke the callback
-//        finishedCallback(photo.image);
-//    } else {
+    // checking if we've already downloaded the photo so we don't waste time doing it again
+    if (photo.image != nil) {
+        // if we already have it, immediately invoke the callback
+        finishedCallback(photo.image);
+    } else {
         NSURLSessionTask *task =
         [[NSURLSession sharedSession]
          downloadTaskWithURL:photo.imageURL
          completionHandler:^(NSURL* location, NSURLResponse* response, NSError* error) {
-             UIImage *img = [UIImage imageWithContentsOfFile:location.path];
+//             UIImage *img = [UIImage imageWithContentsOfFile:location.path];
              // or
-             //         [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+            UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
 
              // save downloaded image on the photo object so we don't have to redownload it
              photo.image = img;
@@ -72,6 +74,6 @@
         
         [task resume];
     }
-
+}
 
 @end

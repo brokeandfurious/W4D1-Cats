@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FlickrPhoto.h"
 #import "FlickrAPI.h"
+#import "FlickrPhoto.h"
 
 @interface CustomCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *catImage;
-@property (weak, nonatomic) IBOutlet UILabel *catLabel;
 
-@property (nonatomic) FlickrPhoto* photo;
-
-
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

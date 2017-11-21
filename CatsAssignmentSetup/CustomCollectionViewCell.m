@@ -8,23 +8,8 @@
 
 #import "CustomCollectionViewCell.h"
 
-
-
 @implementation CustomCollectionViewCell
 
 
-
-
-
--(void)setPhoto:(FlickrPhoto*)photo{
-    
-    [FlickrAPI loadImage:photo completionHandler:^(UIImage *result) {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            self.catImage.image = result;
-            self.catLabel.text = photo.title;
-        }];
-    }];
-
-}
 
 @end

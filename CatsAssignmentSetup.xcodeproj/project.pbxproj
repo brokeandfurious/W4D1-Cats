@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05E012351FC3CEDC00AFFA36 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E012341FC3CEDC00AFFA36 /* CustomCollectionViewCell.m */; };
+		05E012381FC3E18100AFFA36 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E012371FC3E18100AFFA36 /* CustomCollectionViewCell.m */; };
 		1A41FA8D1FC36E1900F58735 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41FA8C1FC36E1900F58735 /* main.m */; };
 		1A41FA901FC36E1900F58735 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41FA8F1FC36E1900F58735 /* AppDelegate.m */; };
 		1A41FA931FC36E1900F58735 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41FA921FC36E1900F58735 /* ViewController.m */; };
@@ -19,8 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05E012331FC3CEDC00AFFA36 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
-		05E012341FC3CEDC00AFFA36 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		05E012361FC3E18100AFFA36 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		05E012371FC3E18100AFFA36 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		1A41FA881FC36E1900F58735 /* CatsAssignmentSetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsAssignmentSetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A41FA8C1FC36E1900F58735 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A41FA8E1FC36E1900F58735 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,19 +67,15 @@
 		1A41FA8A1FC36E1900F58735 /* CatsAssignmentSetup */ = {
 			isa = PBXGroup;
 			children = (
-				1A41FA8E1FC36E1900F58735 /* AppDelegate.h */,
-				1A41FA8F1FC36E1900F58735 /* AppDelegate.m */,
-				05E012331FC3CEDC00AFFA36 /* CustomCollectionViewCell.h */,
-				05E012341FC3CEDC00AFFA36 /* CustomCollectionViewCell.m */,
 				1A41FA911FC36E1900F58735 /* ViewController.h */,
 				1A41FA921FC36E1900F58735 /* ViewController.m */,
+				05E012361FC3E18100AFFA36 /* CustomCollectionViewCell.h */,
+				05E012371FC3E18100AFFA36 /* CustomCollectionViewCell.m */,
 				1A41FAA31FC3702800F58735 /* FlickrAPI.h */,
 				1A41FAA41FC3702800F58735 /* FlickrAPI.m */,
 				1A41FAA61FC371A300F58735 /* FlickrPhoto.h */,
 				1A41FAA71FC371A300F58735 /* FlickrPhoto.m */,
 				1A41FA941FC36E1900F58735 /* Main.storyboard */,
-				1A41FA971FC36E1900F58735 /* Assets.xcassets */,
-				1A41FA991FC36E1900F58735 /* LaunchScreen.storyboard */,
 				1A41FA9C1FC36E1900F58735 /* Info.plist */,
 				1A41FA8B1FC36E1900F58735 /* Supporting Files */,
 			);
@@ -90,6 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				1A41FA8C1FC36E1900F58735 /* main.m */,
+				1A41FA971FC36E1900F58735 /* Assets.xcassets */,
+				1A41FA8E1FC36E1900F58735 /* AppDelegate.h */,
+				1A41FA8F1FC36E1900F58735 /* AppDelegate.m */,
+				1A41FA991FC36E1900F58735 /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -120,7 +120,7 @@
 		1A41FA801FC36E1900F58735 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Occasionally Cogent";
 				TargetAttributes = {
 					1A41FA871FC36E1900F58735 = {
@@ -169,7 +169,7 @@
 				1A41FAA51FC3702800F58735 /* FlickrAPI.m in Sources */,
 				1A41FA931FC36E1900F58735 /* ViewController.m in Sources */,
 				1A41FA901FC36E1900F58735 /* AppDelegate.m in Sources */,
-				05E012351FC3CEDC00AFFA36 /* CustomCollectionViewCell.m in Sources */,
+				05E012381FC3E18100AFFA36 /* CustomCollectionViewCell.m in Sources */,
 				1A41FAA81FC371A300F58735 /* FlickrPhoto.m in Sources */,
 				1A41FA8D1FC36E1900F58735 /* main.m in Sources */,
 			);
@@ -206,9 +206,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -216,11 +214,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -259,9 +253,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -269,11 +261,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
