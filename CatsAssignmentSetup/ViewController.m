@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [FlickrAPI searchFor:@"cats" complete:^(NSArray *results) {
+    [FlickrAPI searchFor:@"samoyed" complete:^(NSArray *results) {
         self.photos = results;
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.collectionView reloadData];
