@@ -9,9 +9,14 @@
 #import "ViewController.h"
 #import "FlickrAPI.h"
 #import "FlickrPhoto.h"
+#import "CustomCollectionViewCell.h"
 
 @interface ViewController () <UICollectionViewDataSource>
+
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSArray<FlickrPhoto*>* photos;
+
 @end
 
 @implementation ViewController
@@ -22,7 +27,7 @@
     [FlickrAPI searchFor:@"cats" complete:^(NSArray *results) {
         self.photos = results;
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            // self.tableView reloadData or something
+            [self.collectionView reloadData];
         }];
     }];
 }
@@ -33,19 +38,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.photos.count;
+}
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     // get a cell
-    UICollectionViewCell *cell;
+    
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    
+//    FlickrPhoto *photo = self.photos[indexPath.item];
 
-    FlickrPhoto *photo = self.photos[indexPath.item];
-
-    [FlickrAPI loadImage:photo completionHandler:^(UIImage *image) {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            //        cell.imageView.image = image;
-        }];
-    }];
+    [cell setPhoto:self.photos[indexPath.item]];
+    
+//    [FlickrAPI loadImage:photo completionHandler:^(UIImage *image) {
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            [cell  ]
+//        }];
+//    }];
 
     return cell;
 }

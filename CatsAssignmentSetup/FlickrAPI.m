@@ -51,11 +51,11 @@
 
 + (void)loadImage:(FlickrPhoto*)photo completionHandler:(void (^)(UIImage *))finishedCallback
 {
-    // checking if we've already downloaded the photo so we don't waste time doing it again
-    if (photo.image != nil) {
-        // if we already have it, immediately invoke the callback
-        finishedCallback(photo.image);
-    } else {
+//    // checking if we've already downloaded the photo so we don't waste time doing it again
+//    if (photo.image != nil) {
+//        // if we already have it, immediately invoke the callback
+//        finishedCallback(photo.image);
+//    } else {
         NSURLSessionTask *task =
         [[NSURLSession sharedSession]
          downloadTaskWithURL:photo.imageURL
@@ -72,6 +72,6 @@
         
         [task resume];
     }
-}
+
 
 @end

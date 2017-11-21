@@ -32,7 +32,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CYa-QN-6sk">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="CYa-QN-6sk" customClass="CustomCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="163" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -52,6 +52,10 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="catImage" destination="xAF-jp-tsv" id="Dyv-hs-dff"/>
+                                            <outlet property="catLabel" destination="drl-8z-D6U" id="S2z-3y-fcM"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -64,6 +68,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="AIU-IR-whM" secondAttribute="trailing" id="rWZ-c0-y44"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="AIU-IR-whM" id="auO-fl-Xmj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

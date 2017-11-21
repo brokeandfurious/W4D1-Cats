@@ -14,6 +14,8 @@
 @property (nonatomic,strong) NSString *farm;
 @property (nonatomic,strong) NSString *ownerId;
 @property (nonatomic,strong) NSString *secret;
+@property (nonatomic,strong) NSString *title;
+@property (nonatomic,strong) UIImage *image;
 
 - (instancetype)initWithInfo:(NSDictionary*)info;
 

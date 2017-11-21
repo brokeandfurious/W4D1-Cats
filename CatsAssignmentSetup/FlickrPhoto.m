@@ -18,6 +18,7 @@
         _farm = info[@"farm"];
         _ownerId = info[@"id"];
         _secret = info[@"secret"];
+        _title = info[@"title"];
     }
     return self;
 }
