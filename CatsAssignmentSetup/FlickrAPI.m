@@ -10,9 +10,54 @@
 
 @implementation FlickrAPI
 
++ (void)searchForLocation: (NSString*)flickrID locationGot:(void (^)(CLLocationCoordinate2D))locationDone {
+    NSURL* locURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=ce870f2223c803a2c5583692edb3471c&photo_id=%@&extras=url_m&format=json&nojsoncallback=1",flickrID]];
+    
+    NSURLSessionTask *task =
+    [[NSURLSession sharedSession]
+     dataTaskWithURL:locURL
+     completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+         // begin standard error handling
+         if (error != nil) {
+             NSLog(@"Error while making request: %@", error.localizedDescription);
+             abort();
+         }
+         NSHTTPURLResponse *resp = (NSHTTPURLResponse*)response;
+         if (resp.statusCode > 299) {
+             NSLog(@"Bad status code: %ld", resp.statusCode);
+             abort();
+         }
+         // end standard error handling
+         
+         // parse response
+         NSError *err = nil;
+         NSDictionary *result = [NSJSONSerialization
+                                 JSONObjectWithData:data
+                                 options:0
+                                 error:&err];
+         if (err != nil) {
+             NSLog(@"Something has gone wrong parsing JSON: %@", err.localizedDescription);
+             abort();
+         }
+         
+         NSDictionary *coordinates = result[@"photo"][@"location"];
+         double latitude = [coordinates[@"latitude"]doubleValue];
+         double longitude = [coordinates[@"longitude"]doubleValue];
+         CLLocationCoordinate2D shittyCoordinates = CLLocationCoordinate2DMake(latitude, longitude);
+
+     
+         locationDone(shittyCoordinates);
+         
+     }];
+    
+    [task resume];
+    
+}
+
 + (void)searchFor:(NSString *)tag complete:(void (^)(NSArray *))done
 {
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=4a5123bfc72e8fac6a046b7b173a4e5c&tags=%@", tag]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=ce870f2223c803a2c5583692edb3471c&tags=%@&has_geo=1&extras=url_m", tag]];
+
     NSURLSessionTask *task =
     [[NSURLSession sharedSession]
      dataTaskWithURL:url

@@ -55,6 +55,7 @@
                                         <connections>
                                             <outlet property="image" destination="qcI-i2-3bA" id="SXo-DD-mwI"/>
                                             <outlet property="label" destination="sSR-VS-qXB" id="YvA-CZ-yA6"/>
+                                            <segue destination="J8a-ZE-RXd" kind="show" identifier="segueToMap" id="IQe-2x-tuo"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -80,5 +81,63 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="YOE-Xr-hMH">
+            <objects>
+                <viewController id="J8a-ZE-RXd" customClass="DetailedViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i7P-Q7-afG"/>
+                        <viewControllerLayoutGuide type="bottom" id="K14-pL-Fwa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qzF-Us-9rG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AlT-iT-19f">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="J8a-ZE-RXd" id="Q8X-U1-15W"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AlT-iT-19f" firstAttribute="top" secondItem="qzF-Us-9rG" secondAttribute="top" id="4Qp-eS-FXu"/>
+                            <constraint firstItem="K14-pL-Fwa" firstAttribute="top" secondItem="AlT-iT-19f" secondAttribute="bottom" id="6ju-KP-spG"/>
+                            <constraint firstAttribute="trailing" secondItem="AlT-iT-19f" secondAttribute="trailing" id="PTS-cu-lJa"/>
+                            <constraint firstItem="AlT-iT-19f" firstAttribute="leading" secondItem="qzF-Us-9rG" secondAttribute="leading" id="bOx-Xq-rY6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Dcq-4b-pSd"/>
+                    <connections>
+                        <outlet property="myMapView" destination="AlT-iT-19f" id="V7U-GO-oVr"/>
+                        <outlet property="myNavigationItem" destination="Dcq-4b-pSd" id="hzU-6m-yE1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZm-Oq-03v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1180" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hze-rE-p1Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FRH-Mu-JIv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ScP-99-FKh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="J8a-ZE-RXd" kind="relationship" relationship="rootViewController" id="c8z-hk-vWe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4J-6a-fFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1825" y="134"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="c8z-hk-vWe"/>
+    </inferredMetricsTieBreakers>
 </document>

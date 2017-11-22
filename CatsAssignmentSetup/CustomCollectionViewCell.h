@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FlickrAPI.h"
-#import "FlickrPhoto.h"
 
 @interface CustomCollectionViewCell : UICollectionViewCell
 

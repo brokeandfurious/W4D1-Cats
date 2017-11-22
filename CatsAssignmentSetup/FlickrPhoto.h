@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface FlickrPhoto : NSObject
+@interface FlickrPhoto : NSObject <MKAnnotation>
 
 @property (nonatomic,strong) NSString *flickrID;
 @property (nonatomic,strong) NSString *serverID;
@@ -17,6 +18,8 @@
 @property (nonatomic,strong) NSString *title;
 
 @property (nonatomic,strong) UIImage *image;
+
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 
 - (instancetype)initWithInfo:(NSDictionary*)info;
 

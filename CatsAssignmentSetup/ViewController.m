@@ -10,29 +10,36 @@
 #import "FlickrAPI.h"
 #import "FlickrPhoto.h"
 #import "CustomCollectionViewCell.h"
+#import "DetailedViewController.h"
 
 @interface ViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSArray<FlickrPhoto*>* photos;
+@property (nonatomic) CLLocationCoordinate2D placeholderForCoordinates;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
     [FlickrAPI searchFor:@"samoyed" complete:^(NSArray *results) {
         self.photos = results;
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.collectionView reloadData];
         }];
     }];
+
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(CustomCollectionViewCell *)sender {
+    if ([[segue identifier]isEqualToString:@"segueToMap"]) {
+        NSIndexPath *path = [self.collectionView indexPathsForSelectedItems][0];
+        FlickrPhoto *photo = self.photos[path.item];
+        DetailedViewController *destinationVC = segue.destinationViewController;
+        [destinationVC setSelectedPhoto:photo];
+    }
 }
 
 #pragma mark - Collection View
@@ -57,9 +64,15 @@
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     cell.image.image = image;
             cell.label.text = photo.title;
+            
         }];
     }];
-
+    
+//    [FlickrAPI searchForLocation:photo.flickrID locationGot:^(CLLocationCoordinate2D shittyCoordinates) {
+//        NSLog(@"Coord Test: %.4f, %.4f", shittyCoordinates.latitude, shittyCoordinates.longitude);
+//        self.placeholderForCoordinates = shittyCoordinates;
+//    }];
+    
     return cell;
 }
 

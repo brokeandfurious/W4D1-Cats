@@ -16,6 +16,7 @@
 		1A41FA9B1FC36E1900F58735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A41FA991FC36E1900F58735 /* LaunchScreen.storyboard */; };
 		1A41FAA51FC3702800F58735 /* FlickrAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41FAA41FC3702800F58735 /* FlickrAPI.m */; };
 		1A41FAA81FC371A300F58735 /* FlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A41FAA71FC371A300F58735 /* FlickrPhoto.m */; };
+		9DF6F2A01FC4DA2800905269 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6F29F1FC4DA2800905269 /* DetailedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		1A41FAA41FC3702800F58735 /* FlickrAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAPI.m; sourceTree = "<group>"; };
 		1A41FAA61FC371A300F58735 /* FlickrPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhoto.h; sourceTree = "<group>"; };
 		1A41FAA71FC371A300F58735 /* FlickrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhoto.m; sourceTree = "<group>"; };
+		9DF6F29E1FC4DA2700905269 /* DetailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
+		9DF6F29F1FC4DA2800905269 /* DetailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 			children = (
 				1A41FA911FC36E1900F58735 /* ViewController.h */,
 				1A41FA921FC36E1900F58735 /* ViewController.m */,
+				9DF6F29E1FC4DA2700905269 /* DetailedViewController.h */,
+				9DF6F29F1FC4DA2800905269 /* DetailedViewController.m */,
 				05E012361FC3E18100AFFA36 /* CustomCollectionViewCell.h */,
 				05E012371FC3E18100AFFA36 /* CustomCollectionViewCell.m */,
 				1A41FAA31FC3702800F58735 /* FlickrAPI.h */,
@@ -170,6 +175,7 @@
 				1A41FA901FC36E1900F58735 /* AppDelegate.m in Sources */,
 				05E012381FC3E18100AFFA36 /* CustomCollectionViewCell.m in Sources */,
 				1A41FAA81FC371A300F58735 /* FlickrPhoto.m in Sources */,
+				9DF6F2A01FC4DA2800905269 /* DetailedViewController.m in Sources */,
 				1A41FA8D1FC36E1900F58735 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
